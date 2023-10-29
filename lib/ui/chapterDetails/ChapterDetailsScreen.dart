@@ -33,17 +33,19 @@ class _ChapterDetailsScreenState extends State<ChapterDetailsScreen> {
                 : Card(
                     margin: EdgeInsets.symmetric(horizontal: 48, vertical: 24),
                     child: ListView.separated(
-                        itemBuilder: (context, index) {
-                          return VerseWidget(verses[index], index);
-                        },
-                        itemCount: verses.length,
-                        separatorBuilder: (context, index) => Container(
-                              color: Theme.of(context).primaryColor,
-                              width: double.infinity,
-                              height: 2,
-                              margin: EdgeInsets.symmetric(horizontal: 64),
-                            )),
-                  )));
+                    itemBuilder: (context, index) {
+                      return VerseWidget(verses[index], index);
+                    },
+                    itemCount: verses.length,
+                    separatorBuilder: (context, index) => Container(
+                          color: Theme.of(context).primaryColor,
+                          width: double.infinity,
+                          height: 2,
+                          margin: EdgeInsets.symmetric(horizontal: 64),
+                        )),
+              ),
+      ),
+    );
   }
 
   List<String> verses = [];
