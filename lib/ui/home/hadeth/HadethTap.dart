@@ -27,7 +27,7 @@ class _HadethTapState extends State<HadethTap> {
                         color: Theme.of(context).primaryColor, width: 2))),
             child: Text(
               'Hadeth',
-              style: TextStyle(fontSize: 24),
+              style: Theme.of(context).textTheme.titleMedium,
             )),
         Expanded(
           flex: 3,
@@ -38,7 +38,7 @@ class _HadethTapState extends State<HadethTap> {
                     return HadethTitleWidget(allAhadeth[index]);
                   },
                   separatorBuilder: (context, index) => Container(
-                        color: Theme.of(context).primaryColor,
+                    color: Theme.of(context).dividerColor,
                         width: double.infinity,
                         height: 2,
                         margin: EdgeInsets.symmetric(horizontal: 64),
