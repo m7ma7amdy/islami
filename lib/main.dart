@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/ui/MyThemData.dart';
 import 'package:islami/ui/chapterDetails/ChapterDetailsScreen.dart';
 import 'package:islami/ui/hadethDetails/HadethDetailsScreen.dart';
@@ -27,6 +28,12 @@ class MyApp extends StatelessWidget {
         HadethDetailsScreen.routeName: (_) => HadethDetailsScreen()
       },
       initialRoute: SplashScreen.routeName,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: const [
+        Locale('en'),
+        Locale('ar'),
+      ],
+      locale: Locale('ar'),
     );
   }
 }
