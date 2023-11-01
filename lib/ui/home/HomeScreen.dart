@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami/ui/MyThemData.dart';
 import 'package:islami/ui/home/hadeth/HadethTap.dart';
 import 'package:islami/ui/home/quran/Quran_Tap.dart';
 import 'package:islami/ui/home/radio/RadioTap.dart';
+import 'package:islami/ui/home/settings/Settings_tap.dart';
 import 'package:islami/ui/home/tasbeh/Tasbeh_Tap.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -20,7 +22,9 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/images/main_background.png'),
+              image: AssetImage(MyThemData.isDarkEnabled
+                  ? 'assets/images/main_background_dark.png'
+                  : 'assets/images/main_background.png'),
               fit: BoxFit.fill)),
       child: Scaffold(
         appBar: AppBar(
@@ -50,6 +54,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 backgroundColor: Theme.of(context).primaryColor,
                 icon: ImageIcon(AssetImage('assets/images/radio.png')),
                 label: AppLocalizations.of(context)!.radio),
+            BottomNavigationBarItem(
+                backgroundColor: Theme.of(context).primaryColor,
+                icon: Icon(Icons.settings),
+                label: 'Settings'),
           ],
         ),
         body: taps[selectedTapIndex],
@@ -57,5 +65,11 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  List<Widget> taps = [QuranTap(), HadethTap(), RadioTap(), TasbehTap()];
+  List<Widget> taps = [
+    QuranTap(),
+    HadethTap(),
+    RadioTap(),
+    TasbehTap(),
+    SettingsTap()
+  ];
 }

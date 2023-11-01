@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class VerseWidget extends StatelessWidget {
@@ -16,10 +15,7 @@ class VerseWidget extends StatelessWidget {
           "$content {${index + 1}}",
           textDirection: TextDirection.rtl,
           textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 20,
-            fontFamily: 'Monotype',
-          ),
+          style: Theme.of(context).textTheme.bodyMedium,
         ));
   }
 }
