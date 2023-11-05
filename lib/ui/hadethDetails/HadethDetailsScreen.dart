@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:islami/provaider/Settinges_Provider.dart';
 import 'package:islami/ui/home/hadeth/Hadeth.dart';
-
-import '../MyThemData.dart';
+import 'package:provider/provider.dart';
 
 class HadethDetailsScreen extends StatelessWidget {
   static const String routeName = 'hadeth-details';
@@ -9,12 +9,11 @@ class HadethDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)?.settings.arguments as Hadeth;
+    var provider = Provider.of<SettingsProvider>(context);
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage(MyThemData.isDarkEnabled
-                  ? 'assets/images/main_background_dark.png'
-                  : 'assets/images/main_background.png'),
+              image: AssetImage(provider.getBackgroundImage()),
               fit: BoxFit.fill)),
       child: Scaffold(
         appBar: AppBar(
